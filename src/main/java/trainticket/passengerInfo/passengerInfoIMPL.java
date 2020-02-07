@@ -19,33 +19,33 @@ public class passengerInfoIMPL implements passengerInfoDAO {
 				pst.executeUpdate();
 
 				System.out.println("Succesfully Passenger details added...");
-				Statement stmt = con.createStatement();
+				try(Statement stmt = con.createStatement();){
 
 				String sql1 = "select booking_id.currval as current_value from dual";
-				ResultSet rows = stmt.executeQuery(sql1);
+				try(ResultSet rows = stmt.executeQuery(sql1);){
 				rows.next();
 				int bookingId = rows.getInt("current_value");
 				String sql2 = "update seat_availabilities set no_of_seats_available = no_of_seats_available- "
 						+ p1.noOfTickets + " where train_num = ?";
-				PreparedStatement pst1 = con.prepareStatement(sql2);
+				try(PreparedStatement pst1 = con.prepareStatement(sql2);){
 				pst1.setInt(1, p1.trainNum);
 				pst1.executeUpdate();
 				String sql3 = "select ticket_price from train_lists where train_num =?";
-				PreparedStatement pst2 = con.prepareStatement(sql3);
+				try(PreparedStatement pst2 = con.prepareStatement(sql3);){
 				pst2.setInt(1, p1.trainNum);
 				int cost = 0, ticket = 0;
 				try (ResultSet row = pst2.executeQuery();) {
 					if (row.next())
 						cost = row.getInt("ticket_price");
 					ticket = cost * p1.noOfTickets;
-					Statement stmt1 = con.createStatement();
+					try(Statement stmt1 = con.createStatement();){
 					String sql22 = "insert into payment_status(train_num,user_id,booking_id,tot_ticket_price)values("
 							+ p1.trainNum + "," + p1.userId + "," + bookingId + "," + ticket + ")";
 					stmt1.executeUpdate(sql22);
 					con.close();
 					return bookingId;
-				}
-			}
+				}}
+			}}}}}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;

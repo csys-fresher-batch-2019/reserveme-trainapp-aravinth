@@ -25,13 +25,13 @@ public class AdminListOfTrainsImpl implements AdminListOfTrainsDAO {
 		pst.executeUpdate();
 		int trainNum = l.trainnum;
 		String sql1 = "insert into seat_availabilities(train_num,tot_no_of_seats, no_of_seats_available) values(?,?,?)";
-		PreparedStatement pst1 = con.prepareStatement(sql1);
+		try(PreparedStatement pst1 = con.prepareStatement(sql1);){
 		pst1.setInt(1, trainNum);
 		pst1.setInt(2, l.totNumOfSeats);
 		pst1.setInt(3, l.availableSeats);
 		pst1.executeUpdate();
 		System.out.println("Succesfully Train_lists added");
-	}}
+	}}}
 		catch(Exception e)
 		{
 			e.printStackTrace();
@@ -111,7 +111,7 @@ public class AdminListOfTrainsImpl implements AdminListOfTrainsDAO {
 		Statement stmt=con.createStatement();){
 		String sql = "select distinct destination_station from train_lists";
 		ArrayList<String> destinationList = new ArrayList<String>();
-		ResultSet rs=stmt.executeQuery(sql);
+		try(ResultSet rs=stmt.executeQuery(sql);){
 		while(rs.next()) {
 			String a=rs.getString("destination_station");
 			destinationList.add(a);
@@ -119,7 +119,7 @@ public class AdminListOfTrainsImpl implements AdminListOfTrainsDAO {
 		
 		return destinationList;
 		
-		}
+		}}
 		catch(Exception e) {
 			e.printStackTrace();
 			return null;

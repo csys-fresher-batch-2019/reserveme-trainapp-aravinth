@@ -29,7 +29,7 @@ public class findTrainIMPL implements findTrainDAO {
 						f.train_name = rows.getString("train_name");
 						f.train_num = rows.getInt("train_num");
 						f.price = rows.getInt("ticket_price");
-						Statement stmt = con.createStatement();
+						try(Statement stmt = con.createStatement();){
 						f.travelling_time = rows.getString("travelling_time");
 						try (ResultSet rs = stmt.executeQuery(
 								"select  no_of_seats_available from seat_availabilities where train_num = "
@@ -42,7 +42,7 @@ public class findTrainIMPL implements findTrainDAO {
 							}
 						}
 
-					}
+					}}
 				}
 			}
 			return trains;

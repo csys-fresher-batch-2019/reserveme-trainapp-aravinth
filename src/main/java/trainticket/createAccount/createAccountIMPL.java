@@ -25,16 +25,16 @@ public class createAccountIMPL implements createAccountDAO {
 				System.out.println("Succesfully Account created");
 
 				String sql1 = "select user_id from user_account where mail_id = ?";
-				PreparedStatement pst1 = con.prepareStatement(sql1);
+				try(PreparedStatement pst1 = con.prepareStatement(sql1);){
 				pst1.setString(1, l.mailId);
-				ResultSet rows = pst1.executeQuery();
+				try(ResultSet rows = pst1.executeQuery();){
 				System.out.println(rows);
 				if (rows.next()) {
 					userid = rows.getInt("user_id");
 					// System.out.println("user Id:"+userid);
 				}
 				return userid;
-			}
+			}}}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
