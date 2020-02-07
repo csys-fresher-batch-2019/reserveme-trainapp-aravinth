@@ -2,15 +2,20 @@ package trainticket.AdminRole;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.SQLException;
 
 public class TestListTrains {
-	public static Connection connect() throws Exception{
+	public static Connection connect() throws SQLException {
+		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String server = "192.168.56.229";
-			Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@"+server+":1521:XE","system", "oracle");
-			System.out.println(connection);
-			return connection;
-			
-	}}
+		} catch (ClassNotFoundException e) {
+			System.out.println(e);
+		}
+		String server = "localhost";
+		Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@" + server + ":1521:XE", "system",
+				"oracle");
+		System.out.println(connection);
+		return connection;
 
+	}
+}
