@@ -14,17 +14,15 @@ public class testAddPassenger {
 		 Scanner scan = new Scanner(System.in);
 		 System.out.println("Enter Train Number:");
 		 
-		p1. trainNum = scan.nextInt();
+		p1.setTrainNum(scan.nextInt());
 		 System.out.println("Enter User Id:");
-		 p1. userId = scan.nextInt();
+		 p1.setUserId(scan.nextInt());
 		 System.out.println("Enter Passenger Name:");
-		 p1. passengerName = scan.next();
+		 p1.setPassengerName(scan.next());
 		 System.out.println("Enter Phone Number:");
-		 p1. phoneNumber = scan.nextLong();
+		 p1.setPhoneNumber(scan.nextLong());
 		 System.out.println("Enter No Of Tickets:");
-		 p1. noOfTickets = scan.nextInt();
-		 //System.out.println("Enter the PromoCode");
-		 //p1.PromoCode = scan.next();
+		 p1.setNoOfTickets(scan.nextInt());
 		 int bookingId = obj1.addPassenger(p1);
 		 System.out.println("Your Booking Id:");
 		 System.out.println(bookingId);

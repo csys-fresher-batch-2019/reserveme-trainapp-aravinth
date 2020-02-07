@@ -17,17 +17,17 @@ public class testaddtrain {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("======ADDING TRAINS======");
 		System.out.println("Enter train name:");
-		l.trainname = scan.nextLine();
+		l.setTrainname(scan.nextLine());
 		System.out.println("Enter train num:");
-		l.trainnum = scan.nextInt();
+		l.setTrainnum(scan.nextInt());
 		System.out.println("Enter sourcestation:");
-		l.Sourcestation = scan.next();
+		l.setSourcestation(scan.next());
 		System.out.println("Enter destinationstation:");
-		l.Destinationstation = scan.next();
+		l.setDestinationstation(scan.next());
 		System.out.println("Enter ticket Price:");
-		l.ticketPrice = scan.nextInt();
+		l.setTicketPrice(scan.nextInt());
 		System.out.println("Enter journey Date:");
-		l.journeyDate = scan.next();
+		l.setJourneyDate(scan.next());
 		
 		System.out.println("Enter travelling start time:");
 		
@@ -36,12 +36,12 @@ public class testaddtrain {
 	    System.out.println("Enter travelling endtime");
 	    String endTime = scan.next();
 	    
-	    l.travellingTime = startTime + " to " + endTime;
+	    l.setTravellingTime(startTime + " to " + endTime);
 		//System.out.println(l);
 	    System.out.println("Enter the total Number Of Seats:");
-		l.totNumOfSeats = scan.nextInt();
+		l.setTotNumOfSeats(scan.nextInt());
 		System.out.println("Enter the Available Seats:");
-		l.availableSeats = scan.nextInt();
+		l.setAvailableSeats(scan.nextInt());
 		obj1.addTrains(l);
 	}
 

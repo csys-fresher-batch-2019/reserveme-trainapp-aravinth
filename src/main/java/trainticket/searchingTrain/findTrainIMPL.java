@@ -26,14 +26,14 @@ public class findTrainIMPL implements findTrainDAO {
 
 						findTrain f = new findTrain();
 
-						f.train_name = rows.getString("train_name");
-						f.train_num = rows.getInt("train_num");
-						f.price = rows.getInt("ticket_price");
+						f.setTrain_name(rows.getString("train_name"));
+						f.setTrain_num(rows.getInt("train_num"));
+						f.setPrice(rows.getInt("ticket_price"));
 						try(Statement stmt = con.createStatement();){
-						f.travelling_time = rows.getString("travelling_time");
+						f.setTravelling_time(rows.getString("travelling_time"));
 						try (ResultSet rs = stmt.executeQuery(
 								"select  no_of_seats_available from seat_availabilities where train_num = "
-										+ f.train_num);) {
+										+ f.getTrain_num());) {
 							while (rs.next()) {
 								int seats1 = rs.getInt("no_of_seats_available");
 								if (seats1 > 0) {

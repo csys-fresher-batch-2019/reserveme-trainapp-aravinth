@@ -17,20 +17,20 @@ public class testuserdata {
         boolean test =true;
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter username");
-		l.userName = scan.next();
+		l.setUserName(scan.next());
 		System.out.println("Enter password");
-	    l.userPassword = scan.next();
+	    l.setUserPassword(scan.next());
 		System.out.println("Enter gender");
-		l.gender = scan.next();
+		l.setGender(scan.next());
 		System.out.println("Enter date of birth");
-		l.dob = scan.next();
+		l.setDob(scan.next());
 		System.out.println("Enter contact number");
-		l.contactNumber = scan.nextLong();
+		l.setContactNumber(scan.nextLong());
 		int userid = 0;
 		while(test) {
 		System.out.println("Enter email Id");
-		l.mailId = scan.next();
-		String a=l.mailId;
+		l.setMailId(scan.next());
+		String a=l.getMailId();
 		if(obj.checkEmail(a)) {
 			test=false;
 			userid=obj.AddUser(l);

@@ -14,21 +14,21 @@ public class AdminListOfTrainsImpl implements AdminListOfTrainsDAO {
 		{
 		String sql = "insert into train_lists(train_name,train_num,Source_station,Destination_station,ticket_price,journey_date,travelling_time)values(?,?,?,?,?,?,?)";
 		try(PreparedStatement pst = con.prepareStatement(sql);){
-		pst.setString(1, l.trainname);
-		pst.setInt(2, l.trainnum);
-		pst.setString(3, l.Sourcestation);
-		pst.setString(4, l.Destinationstation);
-		pst.setInt(5, l.ticketPrice);
-		java.sql.Date journeyDate = java.sql.Date.valueOf(l.journeyDate);
+		pst.setString(1, l.getTrainname());
+		pst.setInt(2, l.getTrainnum());
+		pst.setString(3, l.getSourcestation());
+		pst.setString(4, l.getDestinationstation());
+		pst.setInt(5, l.getTicketPrice());
+		java.sql.Date journeyDate = java.sql.Date.valueOf(l.getJourneyDate());
 		pst.setDate(6, journeyDate);
-		pst.setString(7, l.travellingTime);
+		pst.setString(7, l.getTravellingTime());
 		pst.executeUpdate();
-		int trainNum = l.trainnum;
+		int trainNum = l.getTrainnum();
 		String sql1 = "insert into seat_availabilities(train_num,tot_no_of_seats, no_of_seats_available) values(?,?,?)";
 		try(PreparedStatement pst1 = con.prepareStatement(sql1);){
 		pst1.setInt(1, trainNum);
-		pst1.setInt(2, l.totNumOfSeats);
-		pst1.setInt(3, l.availableSeats);
+		pst1.setInt(2, l.getTotNumOfSeats());
+		pst1.setInt(3, l.getAvailableSeats());
 		pst1.executeUpdate();
 		System.out.println("Succesfully Train_lists added");
 	}}}

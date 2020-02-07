@@ -14,24 +14,23 @@ public class createAccountIMPL implements createAccountDAO {
 			int userid = 0;
 			String sql = "insert into user_account(user_name,user_id,user_password,gender,dob,contact_number,mail_id) values(?,user_id.nextval,?,?,?,?,?)";
 			try (PreparedStatement pst = con.prepareStatement(sql);) {
-				pst.setString(1, l.userName);
-				pst.setString(2, l.userPassword);
-				pst.setString(3, l.gender);
-				java.sql.Date dob = java.sql.Date.valueOf(l.dob);
+				pst.setString(1, l.getUserName());
+				pst.setString(2, l.getUserPassword());
+				pst.setString(3, l.getGender());
+				java.sql.Date dob = java.sql.Date.valueOf(l.getDob());
 				pst.setDate(4, dob);
-				pst.setLong(5, l.contactNumber);
-				pst.setString(6, l.mailId);
+				pst.setLong(5, l.getContactNumber());
+				pst.setString(6, l.getMailId());
 				pst.executeUpdate();
 				System.out.println("Succesfully Account created");
 
 				String sql1 = "select user_id from user_account where mail_id = ?";
 				try(PreparedStatement pst1 = con.prepareStatement(sql1);){
-				pst1.setString(1, l.mailId);
+				pst1.setString(1, l.getMailId());
 				try(ResultSet rows = pst1.executeQuery();){
 				System.out.println(rows);
 				if (rows.next()) {
 					userid = rows.getInt("user_id");
-					// System.out.println("user Id:"+userid);
 				}
 				return userid;
 			}}}
