@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.Scanner;
 
 import trainticket.AdminRole.TestListTrains;
+import trainticket.Logger.logger;
 import trainticket.createAccount.createAccountIMPL;
 import trainticket.findingTrain.testFindTrain;
 
@@ -14,20 +15,21 @@ public class testLogin {
 	public static void main(String[] args) throws Exception {
 		createAccountIMPL obj = new createAccountIMPL();
 		Scanner scan = new Scanner(System.in);
+		 logger out = logger.getInstance();
 		int flag = 1;
 		while (flag == 1) {
-			System.out.println("Enter the User Id");
+			out.getInput("Enter the User Id");
 			int userId = scan.nextInt();
-			System.out.println("Enter the user Password");
+			out.getInput("Enter the user Password");
 			String userPassword = scan.next();
 			if (obj.checkLogin(userId, userPassword)) {
-				System.out.println("Login Successful");
+				out.info("Login Successful");
 				testFindTrain.main(null);
 				flag--;
 			} else {
-				System.out.println("Invalid Username/Password");
-				System.out.println("To changepassword...");
-				System.out.println("Enter 1 to try Again or 2 to change password");
+				out.info("Invalid Username/Password");
+				out.info("To changepassword...");
+				out.info("Enter 1 to try Again or 2 to change password");
 				int choice = scan.nextInt();
 				if(choice ==1)
 				{

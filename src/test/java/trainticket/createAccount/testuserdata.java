@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import trainticket.createAccount.createAccountIMPL;
 import trainticket.AdminRole.TestListTrains;
+import trainticket.Logger.logger;
 import trainticket.createAccount.createAccount;
 
 public class testuserdata {
@@ -16,19 +17,20 @@ public class testuserdata {
 		 Connection con = TestListTrains.connect();
         boolean test =true;
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter username");
+		 logger out = logger.getInstance();
+		out.getInput("Enter username");
 		l.setUserName(scan.next());
-		System.out.println("Enter password");
+		out.getInput("Enter password");
 	    l.setUserPassword(scan.next());
-		System.out.println("Enter gender");
+	    out.getInput("Enter gender");
 		l.setGender(scan.next());
-		System.out.println("Enter date of birth");
+		out.getInput("Enter date of birth");
 		l.setDob(scan.next());
-		System.out.println("Enter contact number");
+		out.getInput("Enter contact number");
 		l.setContactNumber(scan.nextLong());
 		int userid = 0;
 		while(test) {
-		System.out.println("Enter email Id");
+			out.getInput("Enter email Id");
 		l.setMailId(scan.next());
 		String a=l.getMailId();
 		if(obj.checkEmail(a)) {
@@ -36,10 +38,10 @@ public class testuserdata {
 			userid=obj.AddUser(l);
 		} 
 		else {
-			System.out.println("Sorry Your Account Already Exist!!!");
+			out.info("Sorry Your Account Already Exist!!!");
 		}
 		}
-		System.out.println("Your Userid\n"+userid);
+		out.info("Your Userid\n"+userid);
 		trainticket.Login.testLogin.main(null);
 		//System.out.println("Account created successfully");
 	}

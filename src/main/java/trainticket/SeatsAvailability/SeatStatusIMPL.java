@@ -9,7 +9,7 @@ import trainticket.AdminRole.TestListTrains;
 public class SeatStatusIMPL implements SeatStatusDAO {
 	public void updatingSeats(int trainNum) {
 		 try(Connection con = TestListTrains.connect();){
-		 String sql = "update seat_availabilities set no_of_seats_available = ( tot_no_of_seats- (select sum(no_of_tickets) from passenger_details where train_num = ?))where train_num = ?";
+		 String sql = "update seat_availabilities set no_of_seats_available = ( tot_no_of_seats- (select sum(no_of_tickets) from passenger_details where train_num = ? and book_status = 'booked'))where train_num = ?";
 		 try(PreparedStatement pst = con.prepareStatement(sql);){
 		   pst.setInt(1,trainNum);
 		   pst.setInt(2,trainNum);

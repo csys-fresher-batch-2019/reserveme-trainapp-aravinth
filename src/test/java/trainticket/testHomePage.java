@@ -2,7 +2,7 @@ package trainticket;
 
 import java.util.Scanner;
 
-import trainticket.Login.testForgetPassword;
+import trainticket.Logger.logger;
 import trainticket.Login.testLogin;
 import trainticket.Login.testchangePassword;
 import trainticket.createAccount.testuserdata;
@@ -10,10 +10,11 @@ import trainticket.createAccount.testuserdata;
 public class testHomePage {
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("WELCOME TO RESERVEME");
-		System.out.println("1.New User \n2.Existing User \n3.Change password");
-		System.out.println("choose your choice");
 		Scanner scan = new Scanner(System.in);
+		logger out = logger.getInstance();
+		out.info("WELCOME TO RESERVEME");
+		out.info("1.New User \n2.Existing User \n3.Change password");
+		out.info("choose your choice");
 		while(true) {
 		int choice = scan.nextInt();
 		if(choice == 1)
@@ -31,7 +32,7 @@ public class testHomePage {
 		}
 		else
 		{
-			System.out.println("Please enter 1 or 2 to book tickets");
+		out.info("Please enter 1 or 2 to book tickets");
 		}
 	}
 	}

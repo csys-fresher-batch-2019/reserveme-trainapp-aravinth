@@ -2,6 +2,7 @@ package trainticket.Login;
 
 import java.util.Scanner;
 
+import trainticket.Logger.logger;
 import trainticket.createAccount.createAccountIMPL;
 
 public class testchangePassword {
@@ -9,13 +10,14 @@ public class testchangePassword {
 	public static void main(String[] args) throws Exception {
 		createAccountIMPL obj = new createAccountIMPL();
 		Scanner scan = new Scanner(System.in);
+		 logger out = logger.getInstance();
 		boolean test = true,test1=false;
 		while(test)
 		{
 			
-		System.out.println("Enter your user Id:");
+		out.getInput("Enter your user Id:");
 		int userId = scan.nextInt();
-		System.out.println("Enter your Old Password:");
+		out.getInput("Enter your Old Password:");
 		String oldPassword = scan.next();
 		test1 = obj.checkPassword(userId,oldPassword);
 		if (test1 == true)
@@ -26,7 +28,7 @@ public class testchangePassword {
 		}
 		else if(test==false)
 		{
-			System.out.println("Invalid userId or Password");
+			out.info("Invalid userId or Password");
 		}
 
 	}

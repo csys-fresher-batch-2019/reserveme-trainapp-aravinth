@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import trainticket.AdminRole.TestListTrains;
+import trainticket.Logger.logger;
 import trainticket.addingPassengers.testAddPassenger;
 
 public class testAvailableSeats {
@@ -14,31 +15,32 @@ public class testAvailableSeats {
 		SeatStatusIMPL obj = new SeatStatusIMPL();
 			int availableSeats= 0;
 			Scanner scan = new Scanner(System.in);
-			System.out.println("Choose the Train Number to know Available Seats:");
+			 logger out = logger.getInstance();
+			out.getInput("Choose the Train Number to know Available Seats:");
 			int trainNum = scan.nextInt();
 		    int seatsCount = obj.AvailSeats(trainNum);
 		    if(seatsCount ==0)
 		    {
-		    	System.out.println("Invalid Train Num");
+		    	out.info("Invalid Train Num");
 		    	while(true)
 		    	{
-		    		System.out.println("Select 1 to retry....");
+		    		out.info("Select 1 to retry....");
 		    		int press = scan.nextInt();
 		    		if(press ==1)
 		    		{
 		    			testAvailableSeats.main(null);
 		    		}
 		    		else {
-		    			System.out.println("Invalid Option...");
+		    			out.info("Invalid Option...");
 		    		}
 		    	}
 		    }
 		    else {
-		    	System.out.println("Currently Available Seats = "+seatsCount);
+		    	out.info("Currently Available Seats = "+seatsCount);
 		    }
 		    while(true)
 		    {
-		    	System.out.println("Please Enter 1 to search Available Seats of other Trains (or) \nEnter 2 to proceed with the train..");
+		    	out.info("Please Enter 1 to search Available Seats of other Trains (or) \nEnter 2 to proceed with the train..");
 		    	int choice = scan.nextInt();
 		    	if(choice==1)
 		    	{
@@ -51,7 +53,7 @@ public class testAvailableSeats {
 		    		break;
 		    	}
 		    	else {
-		    		System.out.println("Your input is incorrect please Try Again...");
+		    		out.info("Your input is incorrect please Try Again...");
 		    	}
 		    }
 		}

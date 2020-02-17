@@ -5,6 +5,15 @@ public class findTrain {
 		private String train_name;
 		private int price;
 		private String travelling_time;
+		private int seats;
+
+		public int getSeats() {
+			return seats;
+		}
+
+		public void setSeats(int seats) {
+			this.seats = seats;
+		}
 
 		public int getTrain_num() {
 			return train_num;
@@ -53,7 +62,7 @@ public class findTrain {
 		@Override
 		public String toString() {
 			return "findTrain [train_num=" + train_num + ", train_name=" + train_name + ", price=" + price
-					+ ", travelling_time=" + travelling_time + "]";
+					+ ", travelling_time=" + travelling_time + ", seats=" + seats + "]";
 		}
 
 	}

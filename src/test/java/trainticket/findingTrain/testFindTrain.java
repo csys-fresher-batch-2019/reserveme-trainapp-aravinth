@@ -3,6 +3,7 @@ package trainticket.findingTrain;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import trainticket.Logger.logger;
 import trainticket.SeatsAvailability.testAvailableSeats;
 import trainticket.searchingTrain.findTrain;
 import trainticket.searchingTrain.findTrainIMPL;
@@ -11,11 +12,12 @@ public class testFindTrain {
 
 	public static void main(String[] args) throws Exception {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter Source Station:");
+		 logger out = logger.getInstance();
+		out.getInput("Enter Source Station:");
 		String sourceStation = scan.next();
-		System.out.println("Enter Destination Station:");
+		out.getInput("Enter Destination Station:");
 		String destinationStation = scan.next();
-		System.out.println("Enter journeyDate:");
+		out.getInput("Enter journeyDate:");
 		String journeyDate = scan.next();
 		findTrainIMPL obj = new findTrainIMPL();
 		ArrayList<findTrain> trains1 = new ArrayList<findTrain>();
@@ -23,14 +25,14 @@ public class testFindTrain {
 
 		if (trains1.size() > 0) {
 			for (findTrain obj1 : trains1) {
-				System.out.println(obj1);
+				out.info(obj1);
 			}
 
 			
 			testAvailableSeats.main(null);
 
 		} else {
-			System.out.println("Oops Trains not available!!!");
+			out.info("Oops Trains not available!!!");
 		}
 	}
 }
