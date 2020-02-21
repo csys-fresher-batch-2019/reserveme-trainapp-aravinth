@@ -17,7 +17,7 @@ public class testBookingDetails {
 		Scanner sc = new Scanner(System.in);
 		out.getInput("Enter Booking Id:");
 		int bookingId = sc.nextInt();
-		if (obj1.validateBookingId(bookingId)) {
+	    if (obj1.validateBookingId(bookingId)) {
 		ArrayList<passengerInfo> details = obj1.BookingDetails(bookingId);
 		for (passengerInfo info : details) {
 		out.info(info);

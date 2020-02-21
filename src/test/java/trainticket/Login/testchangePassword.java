@@ -13,8 +13,7 @@ public class testchangePassword {
 		 logger out = logger.getInstance();
 		boolean test = true,test1=false;
 		while(test)
-		{
-			
+		{			
 		out.getInput("Enter your user Id:");
 		int userId = scan.nextInt();
 		out.getInput("Enter your Old Password:");
@@ -30,8 +29,6 @@ public class testchangePassword {
 		{
 			out.info("Invalid userId or Password");
 		}
-
 	}
-
 }
 }

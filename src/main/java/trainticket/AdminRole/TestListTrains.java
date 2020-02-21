@@ -11,9 +11,9 @@ public class TestListTrains {
 		} catch (ClassNotFoundException e) {
 			System.out.println(e);
 		}
-		String server = "localhost";
-		Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@" + server + ":1521:XE", "system",
-				"oracle");
+		String server = "13.235.147.120";
+		Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@" + server + ":1521:XE", "aravinth",
+				"aravinth");
 		System.out.println(connection);
 		return connection;
 

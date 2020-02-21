@@ -1,9 +1,5 @@
 package trainticket.creditcard;
 
-import java.time.LocalDate;
-import creditcard.CreditCardService;
-import creditcard.PaymentResponse;
-
 public class card {
 
 	/*

@@ -35,7 +35,6 @@ public class testPayment {
 			boolean paymentStatus = true; //payment.isStatus()
 			System.out.println(paymentStatus);
 			if (paymentStatus) {
-			//obj.PlaceOrder(orderproducts, username, paytype, transId);
 				out.info(transId);
 			out.info(" !!! Train Booked Successfuly !!! ");
 			} else {

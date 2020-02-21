@@ -43,7 +43,6 @@ public class testuserdata {
 		}
 		out.info("Your Userid\n"+userid);
 		trainticket.Login.testLogin.main(null);
-		//System.out.println("Account created successfully");
 	}
 }
 

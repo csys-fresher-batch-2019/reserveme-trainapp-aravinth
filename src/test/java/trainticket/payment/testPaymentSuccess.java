@@ -13,7 +13,5 @@ public class testPaymentSuccess {
 		out.getInput("Enter BookingId:");
 		int bookingId = scan.nextInt();
 		obj.paymentSuccess(bookingId);
-
 	}
-
 }

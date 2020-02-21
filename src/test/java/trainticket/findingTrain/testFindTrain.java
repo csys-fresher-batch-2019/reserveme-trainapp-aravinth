@@ -22,15 +22,11 @@ public class testFindTrain {
 		findTrainIMPL obj = new findTrainIMPL();
 		ArrayList<findTrain> trains1 = new ArrayList<findTrain>();
 		trains1 = obj.SearchTrain(sourceStation, destinationStation, journeyDate);
-
 		if (trains1.size() > 0) {
 			for (findTrain obj1 : trains1) {
 				out.info(obj1);
-			}
-
-			
+			}			
 			testAvailableSeats.main(null);
-
 		} else {
 			out.info("Oops Trains not available!!!");
 		}

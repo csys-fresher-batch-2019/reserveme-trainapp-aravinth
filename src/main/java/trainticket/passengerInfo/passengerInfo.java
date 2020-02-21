@@ -5,8 +5,15 @@ public class passengerInfo {
 	private String passengerName;
 	private Long phoneNumber;
 	private int noOfTickets;
+	public String getBookStatus() {
+		return bookStatus;
+	}
+	public void setBookStatus(String bookStatus) {
+		this.bookStatus = bookStatus;
+	}
 	private int bookingId;
 	private int userId;
+	public String bookStatus;
 	public int getTrainNum() {
 		return trainNum;
 	}

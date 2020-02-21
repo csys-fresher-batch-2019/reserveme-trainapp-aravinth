@@ -1,19 +1,13 @@
 package trainticket.SeatsAvailability;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Scanner;
 
-import trainticket.AdminRole.TestListTrains;
 import trainticket.Logger.logger;
 import trainticket.addingPassengers.testAddPassenger;
 
 public class testAvailableSeats {
 	public static void main(String[] args) throws Exception {
 		SeatStatusIMPL obj = new SeatStatusIMPL();
-			int availableSeats= 0;
 			Scanner scan = new Scanner(System.in);
 			 logger out = logger.getInstance();
 			out.getInput("Choose the Train Number to know Available Seats:");

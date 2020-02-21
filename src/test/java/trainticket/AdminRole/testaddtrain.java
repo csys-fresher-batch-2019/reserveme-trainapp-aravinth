@@ -12,13 +12,10 @@ public class testaddtrain {
 			}
 
 	public static void testAddTrain() throws Exception {
-		// TODO Auto-generated method stub
 		AdminListOfTrainsImpl obj1 = new AdminListOfTrainsImpl();
 		AdminListOfTrains l = new AdminListOfTrains();
-
 		Scanner scan = new Scanner(System.in);
-		 logger out = logger.getInstance();
-
+		logger out = logger.getInstance();
 		out.info("======ADDING TRAINS======");
 		out.getInput("Enter train name:");
 		l.setTrainname(scan.nextLine());
@@ -31,16 +28,12 @@ public class testaddtrain {
 		out.getInput("Enter ticket Price:");
 		l.setTicketPrice(scan.nextInt());
 		out.getInput("Enter journey Date:");
-		l.setJourneyDate(scan.next());
-		
-		out.getInput("Enter travelling start time:");
-		
+		l.setJourneyDate(scan.next());		
+		out.getInput("Enter travelling start time:");		
 		String startTime = scan.next();
 		out.getInput("Enter travelling endtime");
 	    String endTime = scan.next();
-	    
 	    l.setTravellingTime(startTime + " to " + endTime);
-		//System.out.println(l);
 	    out.getInput("Enter the total Number Of Seats:");
 		l.setTotNumOfSeats(scan.nextInt());
 		out.getInput("Enter the Available Seats:");

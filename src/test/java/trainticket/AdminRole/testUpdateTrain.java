@@ -13,17 +13,13 @@ public class testUpdateTrain {
 		 logger out = logger.getInstance();
 		out.getInput("Enter train Number:");
 		int trainNum = scan.nextInt();
-		out.getInput("Enter Travelling start time:");
-		
-		String startTime = scan.next();
-		
+		out.getInput("Enter Travelling start time:");		
+		String startTime = scan.next();		
 		out.getInput("Enter Travelling endtime");
-	    String endTime = scan.next();
-	    
+	    String endTime = scan.next();	    
 	    String travellingTime = startTime + " to " + endTime;
 	    out.getInput("Enter the Source Station");
-		obj2.updateTimings(trainNum,travellingTime);
-		
+		obj2.updateTimings(trainNum,travellingTime);		
 	}
 
 }

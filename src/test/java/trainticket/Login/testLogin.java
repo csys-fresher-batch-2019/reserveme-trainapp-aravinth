@@ -39,9 +39,7 @@ public class testLogin {
 				{
 					testForgetPassword.main(null);
 				}
-
 			}
-
 		}
 	}
 }
